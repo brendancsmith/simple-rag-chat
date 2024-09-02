@@ -2,8 +2,7 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/brendancsmith/simple-rag-chat/badge)](https://www.codefactor.io/repository/github/brendancsmith/simple-rag-chat)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/brendancsmith/simple-rag-chat/ci.yaml)
-![PyPI - Version](https://img.shields.io/pypi/v/diffbot-kg)
-![GitHub License](https://img.shields.io/github/license/brendancsmith/diffbot-kg)
+![GitHub License](https://img.shields.io/github/license/brendancsmith/simple-rag-chat)
 
 This is a simple retrieval-augmented generation (RAG) chat application using OpenAI, Chainlit, Langchain, and Chroma.
 
