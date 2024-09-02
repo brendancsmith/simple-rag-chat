@@ -14,7 +14,7 @@ version = "0.1.0"
 description = ""
 authors = ["Brendan Smith <mail@brendansmith.ai>"]
 readme = "README.md"
-packages = [{include = "simple-rag-chat"}]
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "~3.10"
