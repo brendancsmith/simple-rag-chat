@@ -1,5 +1,8 @@
 # simple-rag-chat
 
+[![CodeFactor](https://www.codefactor.io/repository/github/brendancsmith/simple-rag-chat/badge)](https://www.codefactor.io/repository/github/brendancsmith/simple-rag-chat)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/brendancsmith/simple-rag-chat/ci.yaml)
+
 This is a simple retrieval-augmented generation (RAG) chat application using OpenAI, Chainlit, Langchain, and Chroma.
 
 The app provides an chat interface that asks user to upload PDF or text documents and then allows the user to ask questions against the provided documents. It uses OpenAI's API for the chat and embedding models, Langchain for the framework, Chainlit as the fullstack interface, and Chroma for the vector database.
