@@ -38,8 +38,6 @@ def create_store(*, embedding: Embeddings) -> VectorStore:
         allow_reset=True,
     )
 
-
-
     # Reset the search engine to ensure we don't use old copies.
     # NOTE: we do not need this for production
     store = Chroma(

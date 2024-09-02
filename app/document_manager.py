@@ -1,3 +1,4 @@
+from tempfile import NamedTemporaryFile
 from typing import List
 import chainlit as cl
 
@@ -27,9 +28,14 @@ class DocumentManager():
             List[Document]: chunked documents
         """
 
+        print(file.path)
+
         if file.type == "application/pdf":
-            loader = PDFPlumberLoader(file.name)
-            documents = loader.load()
+            with NamedTemporaryFile() as tmpfile:
+                tmpfile.write(file.content)
+
+                loader = PDFPlumberLoader(tmpfile.name)
+                documents = loader.load()
         elif file.type == "text/plain":
             documents = [Document(page_content=file.content.decode())]
         else:
