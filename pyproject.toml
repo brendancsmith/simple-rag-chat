@@ -9,12 +9,12 @@ ensure_newline_before_comments = true
 line_length = 120
 
 [tool.poetry]
-name = "llm-pdf-qa-sample-app"
+name = "simple-rag-chat"
 version = "0.1.0"
 description = ""
-authors = ["Han Lee <lee.hanchung@gmail.com>"]
+authors = ["Brendan Smith <mail@brendansmith.ai>"]
 readme = "README.md"
-packages = [{include = "llm_pdf_qa_sample_app"}]
+packages = [{include = "simple-rag-chat"}]
 
 [tool.poetry.dependencies]
 python = "~3.10"
@@ -24,7 +24,6 @@ chainlit = "^0.7.604"
 tiktoken = "^0.5.1"
 pdfplumber = "^0.10.3"
 chromadb = "^0.4.17"
-pysqlite3-binary = "^0.5.2.post1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.5"

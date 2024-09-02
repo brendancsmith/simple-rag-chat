@@ -1,0 +1,4 @@
+buttons:
+  - label: Add documents
+    type: primary # options: primary, success, warning, danger
+    action: add_docs

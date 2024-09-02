@@ -11,9 +11,7 @@ QUESTION: {question}
 =========
 FINAL ANSWER:"""
 
-PROMPT = PromptTemplate(
-    template=template, input_variables=["summaries", "question"]
-)
+PROMPT = PromptTemplate(template=template, input_variables=["summaries", "question"])
 
 EXAMPLE_PROMPT = PromptTemplate(
     template="Content: {page_content}\nSource: {source}",
@@ -21,8 +19,8 @@ EXAMPLE_PROMPT = PromptTemplate(
 )
 
 WELCOME_MESSAGE = """\
-Welcome to Introduction to LLM App Development Sample PDF QA Application!
+Welcome to your RAG chatbot!
 To get started:
-1. Upload a PDF or text file
-2. Ask any question about the file!
+1. Upload PDF or text files
+2. Ask any question about the file contents!
 """
