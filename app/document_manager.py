@@ -26,7 +26,7 @@ class DocumentManager():
         Returns:
             List[Document]: chunked documents
         """
-        
+
         if file.type == "application/pdf":
             loader = PDFPlumberLoader(file.name)
             documents = loader.load()

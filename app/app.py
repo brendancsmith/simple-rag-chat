@@ -1,4 +1,4 @@
-from typing import List, Sequence
+from typing import List
 
 import chainlit as cl
 import chromadb
@@ -28,7 +28,7 @@ def create_store(*, embedding: Embeddings) -> VectorStore:
     Returns:
         VectorStore: vector store for RAG
     """
-    
+
     # Initialize Chromadb client to enable resetting and disable telemtry
     client = chromadb.EphemeralClient()
     client_settings = Settings(
@@ -38,7 +38,7 @@ def create_store(*, embedding: Embeddings) -> VectorStore:
         allow_reset=True,
     )
 
-    
+
 
     # Reset the search engine to ensure we don't use old copies.
     # NOTE: we do not need this for production
@@ -203,7 +203,7 @@ async def on_message(message: cl.Message):
 
     store = cl.user_session.get("store")
     if not isinstance(store, VectorStore):
-        raise TypeError("Store in user session is not a VectorStore") 
+        raise TypeError("Store in user session is not a VectorStore")
     docs = store._collection.get() # type: ignore
 
     metadatas = docs["metadatas"]
