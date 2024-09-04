@@ -1,5 +1,3 @@
-from typing import List
-
 import chainlit as cl
 import chromadb
 import chromadb.errors
@@ -11,7 +9,7 @@ from langchain.schema import Document
 from langchain.schema.embeddings import Embeddings
 from langchain.vectorstores import Chroma
 from langchain.vectorstores.base import VectorStore
-from document_manager import DocumentManager
+from documents import process_docs
 from prompts import EXAMPLE_PROMPT, PROMPT, WELCOME_MESSAGE
 
 CHAT_MODEL = "gpt-4o"
@@ -90,12 +88,14 @@ async def create_chain():
     return chain
 
 
-def add_documents(docs: List[Document]):
+async def add_documents(files):
     """Add documents to the search engine
 
     Args:
-        docs (List[Document]): list of documents to be ingested
+        files (List[AskFileResponse]: list of files to be ingested
     """
+
+    docs = await process_docs(files)
 
     if not docs:
         return
@@ -105,6 +105,11 @@ def add_documents(docs: List[Document]):
         raise TypeError("Store in user session is not a valid type")
 
     store.add_documents(docs)
+
+    # add an action to upload more documents
+    button = cl.Action(name="more_docs", value="", label="Add documents")
+    msg = cl.Message(content="You can now ask questions!", actions=[button])
+    await msg.send()
 
 
 async def ask_for_docs(content: str):
@@ -137,19 +142,10 @@ async def ask_for_docs(content: str):
 async def more_docs(action):
     await action.remove()
 
-    doc_mgr = cl.user_session.get("doc_mgr")
-    if not isinstance(doc_mgr, DocumentManager):
-        raise TypeError("doc_mgr in user session is not a DocumentManager")
-
     files = await ask_for_docs("Add more documents")
-    docs = await doc_mgr.process_docs(files)
-    await cl.make_async(add_documents)(docs)
 
-    # add an action to upload more documents
-    button = cl.Action(name="more_docs", value="", label="Add documents")
-    msg = cl.Message(content="You can now ask questions!", actions=[button])
-    await msg.send()
-
+    await add_documents(files)
+    
 
 @cl.on_chat_start
 async def on_chat_start():
@@ -160,22 +156,14 @@ async def on_chat_start():
         RuntimeError: when there is an error in indexing the documents
     """
 
-    doc_mgr = DocumentManager()
-    cl.user_session.set("doc_mgr", doc_mgr)
+    await create_chain()
 
     # Asking user to to upload PDF or txt files to chat with
     files = None
     while files is None:
         files = await ask_for_docs(WELCOME_MESSAGE)
 
-    docs = await doc_mgr.process_docs(files)
-    await create_chain()
-    await cl.make_async(add_documents)(docs)
-
-    # Add an action to upload more documents
-    button = cl.Action(name="more_docs", value="", label="Add documents")
-    msg = cl.Message(content="You can now ask questions!", actions=[button])
-    await msg.send()
+    await add_documents(files)
 
 
 @cl.on_message
@@ -212,8 +200,8 @@ async def on_message(message: cl.Message):
         found_sources = []
 
         # Add the sources to the message
-        for source in sources.split(","):
-            source_name = source.strip().replace(".", "")
+        for source in sources.split("`, `"):
+            source_name = source.strip().replace("`", "")
             # Get the index of the source
             try:
                 index = all_sources.index(source_name)
@@ -225,7 +213,8 @@ async def on_message(message: cl.Message):
             source_elements.append(cl.Text(content=text, name=source_name))
 
         if found_sources:
-            answer += f"\n\nSources: {', '.join(found_sources)}"
+            formatted_sources = '\n- '.join(found_sources)
+            answer += f"\n\nSources:\n- {formatted_sources}"
         else:
             answer += "\n\nNo sources found"
 
