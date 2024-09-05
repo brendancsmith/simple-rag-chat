@@ -43,6 +43,14 @@ Run the application by:
 chainlit run app/app.py -w
 ```
 
+### 🛠️ Development
+
+Install pre-commit
+```bash
+pre-commit install
+pre-commit install-hooks
+```
+
 ## LICENSE
 
 This repository is an extension of [llm-pdf-qa-workshop](https://github.com/leehanchung/llm-pdf-qa-workshop) by Hanchung Lee, licensed under GPLv3.

@@ -28,6 +28,7 @@ chromadb = "^0.4.17"
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.5"
 isort = "^5.12.0"
+pre-commit = "^2.15.0"
 
 [tool.ruff]
 target-version = "py310"
