@@ -5,7 +5,6 @@ from chromadb.config import Settings
 from langchain.chains import RetrievalQAWithSourcesChain
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.schema import Document
 from langchain.schema.embeddings import Embeddings
 from langchain.vectorstores import Chroma
 from langchain.vectorstores.base import VectorStore
@@ -145,7 +144,7 @@ async def more_docs(action):
     files = await ask_for_docs("Add more documents")
 
     await add_documents(files)
-    
+
 
 @cl.on_chat_start
 async def on_chat_start():
