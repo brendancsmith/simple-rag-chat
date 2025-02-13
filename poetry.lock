@@ -430,6 +430,17 @@ files = [
 pycparser = "*"
 
 [[package]]
+name = "cfgv"
+version = "3.4.0"
+description = "Validate configuration and produce human readable error messages."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "cfgv-3.4.0-py2.py3-none-any.whl", hash = "sha256:b7265b1f29fd3316bfcd2b330d63d024f2bfd8bcb8b0272f8e19a504856c48f9"},
+    {file = "cfgv-3.4.0.tar.gz", hash = "sha256:e52591d4c5f5dead8e0f673fb16db7949d2cfb3f7da4582893288f0ded8fe560"},
+]
+
+[[package]]
 name = "chainlit"
 version = "0.7.700"
 description = "A faster way to build chatbot UIs."
@@ -762,6 +773,17 @@ wrapt = ">=1.10,<2"
 
 [package.extras]
 dev = ["PyTest", "PyTest-Cov", "bump2version (<1)", "sphinx (<2)", "tox"]
+
+[[package]]
+name = "distlib"
+version = "0.3.9"
+description = "Distribution utilities"
+optional = false
+python-versions = "*"
+files = [
+    {file = "distlib-0.3.9-py2.py3-none-any.whl", hash = "sha256:47f8c22fd27c27e25a65601af709b38e4f0a45ea4fc2e710f65755fa8caaaf87"},
+    {file = "distlib-0.3.9.tar.gz", hash = "sha256:a60f20dea646b8a33f3e7772f74dc0b2d0772d2837ee1342a00645c81edf9403"},
+]
 
 [[package]]
 name = "distro"
@@ -1309,6 +1331,20 @@ files = [
 pyreadline3 = {version = "*", markers = "sys_platform == \"win32\" and python_version >= \"3.8\""}
 
 [[package]]
+name = "identify"
+version = "2.6.1"
+description = "File identification library for Python"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "identify-2.6.1-py2.py3-none-any.whl", hash = "sha256:53863bcac7caf8d2ed85bd20312ea5dcfc22226800f6d6881f232d861db5a8f0"},
+    {file = "identify-2.6.1.tar.gz", hash = "sha256:91478c5fb7c3aac5ff7bf9b4344f803843dc586832d5f110d672b19aa1984c98"},
+]
+
+[package.extras]
+license = ["ukkonen"]
+
+[[package]]
 name = "idna"
 version = "3.8"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -1494,23 +1530,23 @@ adal = ["adal (>=1.0.2)"]
 
 [[package]]
 name = "langchain"
-version = "0.2.15"
+version = "0.3.0"
 description = "Building applications with LLMs through composability"
 optional = false
-python-versions = "<4.0,>=3.8.1"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain-0.2.15-py3-none-any.whl", hash = "sha256:9e6231441870aaa8523be24a5785ccccfdde759a7e27dd082b6ec80f68e49dec"},
-    {file = "langchain-0.2.15.tar.gz", hash = "sha256:f613ce7594be34f9bac687134a56f6e8274951907b798dbd037aefc95df78953"},
+    {file = "langchain-0.3.0-py3-none-any.whl", hash = "sha256:59a75a6a1eb7bfd2a6bf0c7a5816409a8fdc9046187b07af287b23b9899617af"},
+    {file = "langchain-0.3.0.tar.gz", hash = "sha256:a7c23892440bd1f5b9e029ff0dd709dd881ae927c4c0a3210ac64dba9bbf3f7f"},
 ]
 
 [package.dependencies]
 aiohttp = ">=3.8.3,<4.0.0"
 async-timeout = {version = ">=4.0.0,<5.0.0", markers = "python_version < \"3.11\""}
-langchain-core = ">=0.2.35,<0.3.0"
-langchain-text-splitters = ">=0.2.0,<0.3.0"
+langchain-core = ">=0.3.0,<0.4.0"
+langchain-text-splitters = ">=0.3.0,<0.4.0"
 langsmith = ">=0.1.17,<0.2.0"
 numpy = {version = ">=1,<2", markers = "python_version < \"3.12\""}
-pydantic = ">=1,<3"
+pydantic = ">=2.7.4,<3.0.0"
 PyYAML = ">=5.3"
 requests = ">=2,<3"
 SQLAlchemy = ">=1.4,<3"
@@ -1518,47 +1554,47 @@ tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<9.0.0"
 
 [[package]]
 name = "langchain-core"
-version = "0.2.37"
+version = "0.3.13"
 description = "Building applications with LLMs through composability"
 optional = false
-python-versions = "<4.0,>=3.8.1"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_core-0.2.37-py3-none-any.whl", hash = "sha256:bf0f39ccb653931eeb0a4dd248591ef239895620e04da9ec928446cd9ddb47f0"},
-    {file = "langchain_core-0.2.37.tar.gz", hash = "sha256:944de6cfaad72de5641f6765d5310a022fcd9943f10735507ea040cc5fb95011"},
+    {file = "langchain_core-0.3.13-py3-none-any.whl", hash = "sha256:e79cfac046cab293c02047f081741f4a433ca5aa54a3973e179eaef147cdfba4"},
+    {file = "langchain_core-0.3.13.tar.gz", hash = "sha256:d3a6c838284ff73705dd0f24a36cd8b2fa34a348e6b357e6b3d58199ab063cde"},
 ]
 
 [package.dependencies]
 jsonpatch = ">=1.33,<2.0"
-langsmith = ">=0.1.75,<0.2.0"
+langsmith = ">=0.1.125,<0.2.0"
 packaging = ">=23.2,<25"
-pydantic = {version = ">=1,<3", markers = "python_full_version < \"3.12.4\""}
+pydantic = {version = ">=2.5.2,<3.0.0", markers = "python_full_version < \"3.12.4\""}
 PyYAML = ">=5.3"
-tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<9.0.0"
+tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<10.0.0"
 typing-extensions = ">=4.7"
 
 [[package]]
 name = "langchain-text-splitters"
-version = "0.2.2"
+version = "0.3.0"
 description = "LangChain text splitting utilities"
 optional = false
-python-versions = "<4.0,>=3.8.1"
+python-versions = "<4.0,>=3.9"
 files = [
-    {file = "langchain_text_splitters-0.2.2-py3-none-any.whl", hash = "sha256:1c80d4b11b55e2995f02d2a326c0323ee1eeff24507329bb22924e420c782dff"},
-    {file = "langchain_text_splitters-0.2.2.tar.gz", hash = "sha256:a1e45de10919fa6fb080ef0525deab56557e9552083600455cb9fa4238076140"},
+    {file = "langchain_text_splitters-0.3.0-py3-none-any.whl", hash = "sha256:e84243e45eaff16e5b776cd9c81b6d07c55c010ebcb1965deb3d1792b7358e83"},
+    {file = "langchain_text_splitters-0.3.0.tar.gz", hash = "sha256:f9fe0b4d244db1d6de211e7343d4abc4aa90295aa22e1f0c89e51f33c55cd7ce"},
 ]
 
 [package.dependencies]
-langchain-core = ">=0.2.10,<0.3.0"
+langchain-core = ">=0.3.0,<0.4.0"
 
 [[package]]
 name = "langsmith"
-version = "0.1.108"
+version = "0.1.137"
 description = "Client library to connect to the LangSmith LLM Tracing and Evaluation Platform."
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langsmith-0.1.108-py3-none-any.whl", hash = "sha256:407f318b0989e33f2cd30bc2fbd443e4ddfa7c2a93de7f795fb6b119b015583c"},
-    {file = "langsmith-0.1.108.tar.gz", hash = "sha256:42f603e2d5770ba36093951bdb29eaab22451cb12ab8c062340c722cf60d4cec"},
+    {file = "langsmith-0.1.137-py3-none-any.whl", hash = "sha256:4256d5c61133749890f7b5c88321dbb133ce0f440c621ea28e76513285859b81"},
+    {file = "langsmith-0.1.137.tar.gz", hash = "sha256:56cdfcc6c74cb20a3f437d5bd144feb5bf93f54c5a2918d1e568cbd084a372d4"},
 ]
 
 [package.dependencies]
@@ -1566,6 +1602,7 @@ httpx = ">=0.23.0,<1"
 orjson = ">=3.9.14,<4.0.0"
 pydantic = {version = ">=1,<3", markers = "python_full_version < \"3.12.4\""}
 requests = ">=2,<3"
+requests-toolbelt = ">=1.0.0,<2.0.0"
 
 [[package]]
 name = "lazify"
@@ -1871,6 +1908,17 @@ python-versions = ">=3.5"
 files = [
     {file = "nest_asyncio-1.6.0-py3-none-any.whl", hash = "sha256:87af6efd6b5e897c81050477ef65c62e2b2f35d51703cae01aff2905b1852e1c"},
     {file = "nest_asyncio-1.6.0.tar.gz", hash = "sha256:6f172d5449aca15afd6c646851f4e31e02c598d553a667e38cafa997cfec55fe"},
+]
+
+[[package]]
+name = "nodeenv"
+version = "1.9.1"
+description = "Node.js virtual environment builder"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
+files = [
+    {file = "nodeenv-1.9.1-py2.py3-none-any.whl", hash = "sha256:ba11c9782d29c27c70ffbdda2d7415098754709be8a7056d79a737cd901155c9"},
+    {file = "nodeenv-1.9.1.tar.gz", hash = "sha256:6ec12890a2dab7946721edbfbcd91f3319c6ccc9aec47be7c7e6b7011ee6645f"},
 ]
 
 [[package]]
@@ -2420,6 +2468,22 @@ typing = ["typing-extensions"]
 xmp = ["defusedxml"]
 
 [[package]]
+name = "platformdirs"
+version = "4.3.6"
+description = "A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "platformdirs-4.3.6-py3-none-any.whl", hash = "sha256:73e575e1408ab8103900836b97580d5307456908a03e92031bab39e4554cc3fb"},
+    {file = "platformdirs-4.3.6.tar.gz", hash = "sha256:357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"},
+]
+
+[package.extras]
+docs = ["furo (>=2024.8.6)", "proselint (>=0.14)", "sphinx (>=8.0.2)", "sphinx-autodoc-typehints (>=2.4)"]
+test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=8.3.2)", "pytest-cov (>=5)", "pytest-mock (>=3.14)"]
+type = ["mypy (>=1.11.2)"]
+
+[[package]]
 name = "posthog"
 version = "3.6.0"
 description = "Integrate PostHog into any python application."
@@ -2441,6 +2505,24 @@ six = ">=1.5"
 dev = ["black", "flake8", "flake8-print", "isort", "pre-commit"]
 sentry = ["django", "sentry-sdk"]
 test = ["coverage", "flake8", "freezegun (==0.3.15)", "mock (>=2.0.0)", "pylint", "pytest", "pytest-timeout"]
+
+[[package]]
+name = "pre-commit"
+version = "2.21.0"
+description = "A framework for managing and maintaining multi-language pre-commit hooks."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "pre_commit-2.21.0-py2.py3-none-any.whl", hash = "sha256:e2f91727039fc39a92f58a588a25b87f936de6567eed4f0e673e0507edc75bad"},
+    {file = "pre_commit-2.21.0.tar.gz", hash = "sha256:31ef31af7e474a8d8995027fefdfcf509b5c913ff31f2015b4ec4beb26a6f658"},
+]
+
+[package.dependencies]
+cfgv = ">=2.0.0"
+identify = ">=1.0.0"
+nodeenv = ">=0.11.1"
+pyyaml = ">=5.1"
+virtualenv = ">=20.10.0"
 
 [[package]]
 name = "protobuf"
@@ -3038,6 +3120,20 @@ requests = ">=2.0.0"
 
 [package.extras]
 rsa = ["oauthlib[signedtoken] (>=3.0.0)"]
+
+[[package]]
+name = "requests-toolbelt"
+version = "1.0.0"
+description = "A utility belt for advanced users of python-requests"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+files = [
+    {file = "requests-toolbelt-1.0.0.tar.gz", hash = "sha256:7681a0a3d047012b5bdc0ee37d7f8f07ebe76ab08caeccfc3921ce23c88d5bc6"},
+    {file = "requests_toolbelt-1.0.0-py2.py3-none-any.whl", hash = "sha256:cccfdd665f0a24fcf4726e690f65639d272bb0637b9b92dfd91a5568ccf6bd06"},
+]
+
+[package.dependencies]
+requests = ">=2.0.1,<3.0.0"
 
 [[package]]
 name = "rich"
@@ -3661,6 +3757,26 @@ docs = ["Sphinx (>=4.1.2,<4.2.0)", "sphinx-rtd-theme (>=0.5.2,<0.6.0)", "sphinxc
 test = ["Cython (>=0.29.36,<0.30.0)", "aiohttp (==3.9.0b0)", "aiohttp (>=3.8.1)", "flake8 (>=5.0,<6.0)", "mypy (>=0.800)", "psutil", "pyOpenSSL (>=23.0.0,<23.1.0)", "pycodestyle (>=2.9.0,<2.10.0)"]
 
 [[package]]
+name = "virtualenv"
+version = "20.27.1"
+description = "Virtual Python Environment builder"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "virtualenv-20.27.1-py3-none-any.whl", hash = "sha256:f11f1b8a29525562925f745563bfd48b189450f61fb34c4f9cc79dd5aa32a1f4"},
+    {file = "virtualenv-20.27.1.tar.gz", hash = "sha256:142c6be10212543b32c6c45d3d3893dff89112cc588b7d0879ae5a1ec03a47ba"},
+]
+
+[package.dependencies]
+distlib = ">=0.3.7,<1"
+filelock = ">=3.12.2,<4"
+platformdirs = ">=3.9.1,<5"
+
+[package.extras]
+docs = ["furo (>=2023.7.26)", "proselint (>=0.13)", "sphinx (>=7.1.2,!=7.3)", "sphinx-argparse (>=0.4)", "sphinxcontrib-towncrier (>=0.2.1a0)", "towncrier (>=23.6)"]
+test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7)", "packaging (>=23.1)", "pytest (>=7.4)", "pytest-env (>=0.8.2)", "pytest-freezer (>=0.4.8)", "pytest-mock (>=3.11.1)", "pytest-randomly (>=3.12)", "pytest-timeout (>=2.1)", "setuptools (>=68)", "time-machine (>=2.10)"]
+
+[[package]]
 name = "watchfiles"
 version = "0.20.0"
 description = "Simple, modern and high performance file watching and code reload in python."
@@ -4025,4 +4141,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.10"
-content-hash = "e76071559ebcf18d54e7b45dc4a63e1c2fa4a5258f0adcebcdd7f56d1117fc60"
+content-hash = "e9b0d4e8c3477c651a86924eb7145eaec40cc31877e42c77c6efa587384c112c"
