@@ -8,7 +8,6 @@ from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
-
 def process_file(*, file: AskFileResponse) -> List[Document]:
     """Takes a Chainlit AskFileResponse, get the document and process and chunk
     it into a list of Langchain's Documents. Each Document has page_content and
@@ -38,16 +37,19 @@ def process_file(*, file: AskFileResponse) -> List[Document]:
     else:
         raise TypeError("Only PDF and text files are supported")
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=100)
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=2000, chunk_overlap=100
+    )
     docs = text_splitter.split_documents(documents)
 
     if docs is None:
-        raise ValueError("File {} could not be parsed" % file.name)
+        raise ValueError(f"File {file.name} could not be parsed")
 
     for index, doc in enumerate(docs, start=1):
         doc.metadata["source"] = f"{file.name} | pt. {index}"
 
     return docs
+
 
 async def process_docs(files):
     """Processes a list of files by calling the process_file method for each file.
