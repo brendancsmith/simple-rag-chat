@@ -11,7 +11,9 @@ QUESTION: {question}
 =========
 FINAL ANSWER:"""
 
-PROMPT = PromptTemplate(template=template, input_variables=["summaries", "question"])
+PROMPT = PromptTemplate(
+    template=template, input_variables=["summaries", "question"]
+)
 
 EXAMPLE_PROMPT = PromptTemplate(
     template="Content: {page_content}\nSource: {source}",

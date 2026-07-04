@@ -14,6 +14,7 @@ from prompts import EXAMPLE_PROMPT, PROMPT, WELCOME_MESSAGE
 CHAT_MODEL = "gpt-4o"
 EMBEDDING_MODEL = "text-embedding-3-small"
 
+
 def create_store(*, embedding: Embeddings) -> VectorStore:
     """Takes a list of Langchain Documents and an Langchain embeddings wrapper
     over encoder models, and index the data into a ChromaDB as a search engine
@@ -37,10 +38,7 @@ def create_store(*, embedding: Embeddings) -> VectorStore:
 
     # Reset the search engine to ensure we don't use old copies.
     # NOTE: we do not need this for production
-    store = Chroma(
-        client=client,
-        client_settings=client_settings
-    )
+    store = Chroma(client=client, client_settings=client_settings)
     store._client.reset()
 
     # Initalize the VectorStore with the ChromaDB client and the embedding function
@@ -175,7 +173,9 @@ async def on_message(message: cl.Message):
 
     chain = cl.user_session.get("chain")
     if type(chain) is not RetrievalQAWithSourcesChain:
-        raise TypeError("Chain in user session is not a RetrievalQAWithSourcesChain")
+        raise TypeError(
+            "Chain in user session is not a RetrievalQAWithSourcesChain"
+        )
 
     response = await chain.acall(
         message.content,
@@ -189,7 +189,7 @@ async def on_message(message: cl.Message):
     store = cl.user_session.get("store")
     if not isinstance(store, VectorStore):
         raise TypeError("Store in user session is not a VectorStore")
-    docs = store._collection.get() # type: ignore
+    docs = store._collection.get()  # type: ignore
 
     metadatas = docs["metadatas"]
     all_sources = [m["source"] for m in metadatas]
@@ -212,7 +212,7 @@ async def on_message(message: cl.Message):
             source_elements.append(cl.Text(content=text, name=source_name))
 
         if found_sources:
-            formatted_sources = '\n- '.join(found_sources)
+            formatted_sources = "\n- ".join(found_sources)
             answer += f"\n\nSources:\n- {formatted_sources}"
         else:
             answer += "\n\nNo sources found"
