@@ -1,0 +1,35 @@
+version: 2
+
+updates:
+  # Python dependencies managed by Poetry (pyproject.toml + poetry.lock).
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    groups:
+      python-production:
+        dependency-type: "production"
+        patterns:
+          - "*"
+      python-development:
+        dependency-type: "development"
+        patterns:
+          - "*"
+
+  # Actions pinned in .github/workflows.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
