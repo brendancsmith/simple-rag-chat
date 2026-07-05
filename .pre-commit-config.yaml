@@ -5,7 +5,7 @@ default_language_version:
 
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v6.0.0
     hooks:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
@@ -24,12 +24,12 @@ repos:
     -   id: fix-byte-order-marker
 
 -   repo: https://github.com/abravalheri/validate-pyproject
-    rev: v0.14
+    rev: v0.25
     hooks:
       - id: validate-pyproject
 
--   repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.1.5
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.16
     hooks:
     -   id: ruff
         args:
