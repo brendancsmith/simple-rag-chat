@@ -26,8 +26,8 @@ pdfplumber = ">=0.10.3,<0.12.0"
 chromadb = ">=0.4.17,<1.6.0"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.15.16"
-isort = ">=5.12,<9.0"
+ruff = ">=0.15.16,<0.17.0"
+isort = ">=5.12,<10.0"
 pre-commit = ">=2.15,<5.0"
 
 [tool.ruff]
